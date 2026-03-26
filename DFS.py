@@ -3,6 +3,7 @@ import json
 import random
 from typing import List, Dict
 
+from multi_path import add_multiple_paths
 
 class Cell:
     """Grid cell for maze generation. No rendering responsibilities."""
@@ -74,6 +75,8 @@ def generate_maze(cols: int, rows: int) -> List[Dict]:
         else:
             break
 
+    add_multiple_paths(grid, rows, cols, extra_paths=30)
+      
     # Convert to serializable data
     maze_data: List[Dict] = []
     for cell in grid:
